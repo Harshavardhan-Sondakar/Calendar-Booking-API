@@ -41,7 +41,7 @@ class _BookingListScreenState extends State<BookingListScreen> {
   Future<void> fetchBookings() async {
     setState(() => loading = true);
     try {
-      final response = await http.get(Uri.parse('http://localhost:3000/bookings'));
+      final response = await http.get(Uri.parse('https://calendar-booking-api.onrender.com/bookings'));
       if (response.statusCode == 200) {
         setState(() {
           bookings = json.decode(response.body);
@@ -64,7 +64,7 @@ class _BookingListScreenState extends State<BookingListScreen> {
   Future<void> createBooking(String userId, String start, String end) async {
     try {
       final response = await http.post(
-        Uri.parse('http://localhost:3000/bookings'),
+        Uri.parse('https://calendar-booking-api.onrender.com/bookings'),
         headers: {'Content-Type': 'application/json'},
         body: json.encode({
           'userId': userId,
@@ -91,7 +91,7 @@ class _BookingListScreenState extends State<BookingListScreen> {
   Future<void> updateBooking(String id, String userId, String start, String end) async {
     try {
       final response = await http.put(
-        Uri.parse('http://localhost:3000/bookings/$id'),
+        Uri.parse('https://calendar-booking-api.onrender.com/bookings/$id'),
         headers: {'Content-Type': 'application/json'},
         body: json.encode({
           'userId': userId,
@@ -118,7 +118,7 @@ class _BookingListScreenState extends State<BookingListScreen> {
   Future<void> deleteBooking(String id) async {
     try {
       final response = await http.delete(
-        Uri.parse('http://localhost:3000/bookings/$id'),
+        Uri.parse('https://calendar-booking-api.onrender.com/bookings/$id'),
       );
       if (response.statusCode == 200) {
         fetchBookings();
