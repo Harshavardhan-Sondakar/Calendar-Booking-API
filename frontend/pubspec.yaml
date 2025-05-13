@@ -1,0 +1,16 @@
+name: calendar_booking_app
+description: A full-stack Calendar Booking API project using Flutter and Node.js
+publish_to: 'none'
+version: 1.0.0
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+dependencies:
+  flutter:
+    sdk: flutter
+  http: ^0.13.3
+  provider: ^5.0.0
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+flutter:
+  uses-material-design: true
