@@ -16,6 +16,10 @@ db.connect();
 
 app.use('/bookings', bookingsRouter);
 
+app.get('/', (req, res) => {
+  res.send('Calendar Booking API is running!');
+});
+
 app.use((err, req, res, next) => {
   res.status(err.status || 500).json({ error: err.message || 'Internal Server Error' });
 });
